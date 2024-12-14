@@ -1,13 +1,15 @@
 import React from 'react'
 import Navbar from './components/Navbar/Navbar'
-import {createBrowserRouter, RouterProvider} from 'react-router-dom'
+import {createBrowserRouter, RouterProvider,} from 'react-router-dom'
 import Home from './Pages/Home'
 import Mens from './Pages/Mens'
 import Womens from './Pages/Womens'
 import Kids from './Pages/Kids'
 import Login from './Pages/Login'
+import Cart from './Pages/Cart'
 
-const router = createBrowserRouter([
+
+const router = createBrowserRouter ([
   {
     path: "/",
     element: <><Navbar/><Home/></>
@@ -27,7 +29,11 @@ const router = createBrowserRouter([
   {
     path: "/login",
     element: <><Navbar/><Login/></>
-  }
+  },
+  {
+    path: "/cart",
+    element: <><Navbar/><Cart/></>
+  },
 ])
 
 const App = () => {
