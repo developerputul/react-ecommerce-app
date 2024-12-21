@@ -1,9 +1,12 @@
 import { Star } from 'lucide-react';
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom';
+import { Shopcontext } from '../Context/ShopContext';
 
 const ProductDisplay = (props) => {
-  const {product} = props;
+  const {product} = props
+  const {addToCart} = useContext(Shopcontext)
+  
   return (
     <div className='grid grid-cols-1 md:grid-cols-2 my-20 md:gap-10 px-6 md:px-0'>
         <div className='flex md:1/2 gap-4'>
@@ -45,7 +48,7 @@ const ProductDisplay = (props) => {
           </div>
         </div>
         <Link to={'/cart'}>
-        <button className='bg-red-500 text-white px-6 py-3 my-4 w-max'>ADD TO CART</button>
+        <button onClick={()=>addToCart(product.id)} className='bg-red-500 text-white px-6 py-3 my-4 w-max'>ADD TO CART</button>
         </Link>
         <p><span className='font-semibold'>Category:</span> Women,T-Shirt, Crop top</p>
         <p><span className='font-semibold'>Tags:</span> Modern, Latest</p>

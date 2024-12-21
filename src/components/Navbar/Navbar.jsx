@@ -2,12 +2,14 @@
 import Logo from "../../assets/Logo.png";
 import { ShoppingCart } from "lucide-react";
 import { Link } from "react-router-dom"; // Correct import
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { HiMenuAlt1, HiMenuAlt3 } from "react-icons/hi";
 import ResponsiveMenu from './ResponsiveMenu';
+import { Shopcontext } from "../../Context/ShopContext";
 
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
+  const {getTotalCartItems} = useContext(Shopcontext)
 
   const toggleMenu = () => {
     setShowMenu(!showMenu);
@@ -44,9 +46,7 @@ const Navbar = () => {
        
           <Link to="/cart" className="relative w-10">
             <ShoppingCart />
-            <div className="bg-red-500 w-5 absolute -top-2 right-1 flex items-center justify-center rounded-full text-white">
-              0
-            </div>
+          <div className="bg-red-500 w-5 absolute -top-2 right-1 flex items-center justify-center rounded-full text-white">{getTotalCartItems()}</div>
           </Link>
            {/* Mobile menu icon */}
 
