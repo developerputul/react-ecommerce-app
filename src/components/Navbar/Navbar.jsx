@@ -38,9 +38,11 @@ const Navbar = () => {
                 <Link to="/kids">Kids</Link>
               </li> 
               <li>
+                <Link to='/login'>
                 <button className="bg-red-500 text-white px-4 py-1 rounded-md">
                   Login
                 </button>
+                </Link>
               </li>
             </ul>
           </nav>
